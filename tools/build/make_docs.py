@@ -34,6 +34,11 @@ PICKS = {
     "card_deal": ["card_slide"], "card_play": ["card_place"], "shuffle": ["card_shuffle"], "dice_roll": ["dice"],
     "bet_chips": ["chips"], "unlock_success": ["zap_three_up_01"],
     "jingle_win_or_lose": ["jingle_8bit", "jingle_pizzicato"], "stinger": ["jingle_hit"],
+    # realistic war sounds (ww2/) and recorded music (music/); some are CC-BY, see each entry's license
+    "gunfire_realistic": ["rifle_shot", "mg_burst"], "battle_ambience": ["battle_distant"],
+    "artillery": ["artillery"], "cannon_or_tank_gun": ["howitzer"], "air_raid_siren": ["air_raid_siren"],
+    "plane_flyover": ["plane_flyby", "plane_pass"], "tank": ["tank_rumble", "tank_pass"], "ship_horn": ["ship_horn"],
+    "radio_morse": ["radio_morse"], "music_somber": ["war_lament"], "music_battle": ["call_to_war"],
 }
 quick = {}
 for event, refs in PICKS.items():
@@ -52,7 +57,8 @@ data["quick_picks_note"] = "Starting suggestions chosen from names and measureme
 
 # ---- CATALOG.md: compact, readable by Claude and humans ----
 lines = ["# Sound catalog", "",
-         f"{len(data['sounds'])} sounds, CC0 (Kenney.nl). Files are `sounds/<file>`. "
+         f"{len(data['sounds'])} sounds. Kenney.nl sounds are CC0. The `ww2/` recordings and `music/` tracks are CC0 or CC-BY "
+         "(license and author on each line; CC-BY needs a credit line in your game, see LICENSE.md). Files are `sounds/<file>`. "
          "`vol` = suggested volume (0–1) so sounds mix evenly. Descriptions after the dash are measured from the audio "
          "(length, brightness, attack, pitch direction) and are approximate.", ""]
 lines += ["## Quick picks (game event → files)", ""]
@@ -68,7 +74,8 @@ for fam, items in sorted(by_fam.items(), key=lambda kv: (kv[1][0]["category"], k
     s0 = items[0]
     lines.append(f"### {fam} — {s0['what_it_is']} Use for: {', '.join(s0['use_for'])}.")
     for s in items:
-        lines.append(f"- `{s['file']}` {s['duration']:.2f}s, vol {s['volume']} — {s['sounds_like']}")
+        lic = f" [{s['license']}, {s['author']}]" if "license" in s else ""
+        lines.append(f"- `{s['file']}` {s['duration']:.2f}s, vol {s['volume']} — {s['sounds_like']}{lic}")
     lines.append("")
 (lib / "CATALOG.md").write_text("\n".join(lines))
 
@@ -76,7 +83,7 @@ for fam, items in sorted(by_fam.items(), key=lambda kv: (kv[1][0]["category"], k
 rows = []
 for s in data["sounds"]:
     rows.append({"f": s["file"], "c": s["category"], "fam": s["family"], "w": s["what_it_is"],
-                 "l": s["sounds_like"], "v": s["volume"], "d": s["duration"]})
+                 "l": s["sounds_like"] + (f" · {s['license']} by {s['author']}" if "license" in s else ""), "v": s["volume"], "d": s["duration"]})
 page = """<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Game Sound Preview</title><style>
 :root{--bg:#f6f5f2;--fg:#1d1d1b;--mut:#6b6a66;--card:#fff;--line:#e3e1dc;--acc:#2f6fdf;--fav:#e0a100}

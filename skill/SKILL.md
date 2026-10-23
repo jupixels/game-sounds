@@ -5,7 +5,9 @@ description: Use whenever building or editing a game, interactive toy, or animat
 
 # Game audio with the game-sounds library
 
-The user has a library of 606 real, CC0 game sounds (Kenney.nl) in the GitHub repo **jupixels/game-sounds**.
+The user has a library of 636 real game sounds in the GitHub repo **jupixels/game-sounds**: 606 CC0 sounds from Kenney.nl,
+plus real war recordings (`ww2/`: rifles, machine guns, artillery, siren, warplane, tank, ship horn, morse radio) and two
+recorded orchestral music tracks (`music/`).
 Always use it for game audio. Do not synthesize sound effects with oscillators unless the user asks for
 procedural audio or no library sound fits (then say so).
 
@@ -29,11 +31,14 @@ You cannot hear audio. Choose sounds from the written descriptions, never from f
    - Realistic, fantasy, or RPG games: prefer `impacts/`, `rpg/`, `footsteps/`, `jingles/jingle_hit`.
    - Cute or casual games: prefer `ui/pluck`, `ui/glass`, `arcade/pep`, `jingles/jingle_pizzicato`.
    - Card and board games: `tabletop/`.
+   - War, military, or historical games: `ww2/` for weapons, vehicles and alarms, and `music/` for a score.
 3. Load 2 to 4 variants for anything that repeats often (footsteps, shots, hits, coins) so repeats sound natural.
 4. Use each sound's suggested `volume` from sounds.json as its base volume.
 5. Jingles were labeled by measurement, not by ear, so whether one sounds happy or sad is unknown. Rising
    pitch usually suits a win and falling pitch a loss. If the user has starred favorites, use those.
 6. If the user names specific files (for example from `preview.html`), use exactly those.
+7. Check each sound's `license`: Kenney sounds have none listed and are CC0. Entries with a `license` field (the `ww2/`
+   and `music/` families) name an author; CC-BY ones must be credited in the game (author, title, link, license).
 
 ## 3. Wire it in
 
@@ -47,7 +52,7 @@ await sfx.load({
 });
 sfx.play("shoot", { vary: 0.06, pan: x / width * 2 - 1 });   // vary = small random pitch change
 const eng = sfx.loop("engine"); eng.stop(0.3);                  // loops: engines, ambience
-sfx.music("theme");                                             // looping music bus with crossfade
+sfx.music("theme");                                             // looping music bus with crossfade (short loops only)
 sfx.setVolume("master", 0);                                     // mute button
 ```
 
@@ -55,7 +60,7 @@ Choose the delivery method by where the game lives:
 
 | Where the game lives | How to include sounds |
 |---|---|
-| A repo or multi-file project | Copy only the MP3s you use into `sounds/<category>/` in the project, plus `lib/sfx.js`. Add a line crediting Kenney.nl (CC0) in the README. |
+| A repo or multi-file project | Copy only the MP3s you use into `sounds/<category>/` in the project, plus `lib/sfx.js`. Add a line crediting Kenney.nl (CC0) in the README, plus a credit line for every CC-BY `ww2/` sound used. |
 | A single HTML file the user downloads | Run `python3 tools/embed.py name=path ... > sounds-embedded.js`, then inline that output and sfx.js into the page and call `sfx.load(window.SFX_DATA)`. Keep embedded audio under about 1 MB. |
 | A published Claude artifact | Embed the sounds the same way as a single HTML file. Artifacts can't load audio from other sites. |
 | A page hosted elsewhere (e.g. GitHub Pages) | You may load from jsDelivr instead of copying: `base: "https://cdn.jsdelivr.net/gh/jupixels/game-sounds@main/sounds/"`. |
@@ -65,6 +70,9 @@ Choose the delivery method by where the game lives:
 - Browsers block audio until the first click or key press. sfx.js unlocks itself, but start the game
   from a "click/press to start" screen so the first sounds aren't lost.
 - Keep UI sounds quieter than gameplay sounds, and music around 0.3 to 0.5.
+- The `music/` tracks are minutes long. Stream them with an `<audio>` element (routed into `sfx.buses.music` with
+  `createMediaElementSource` so the volume controls still apply) instead of `sfx.load`/`sfx.music`, which would decode
+  them into tens of MB of memory. Don't embed them in single-file games or artifacts (too large).
 - Use `cooldown` (default 0.03s) or a longer value to stop rapid-fire events from stacking into noise.
 - Pan positional sounds with `pan` and add `vary` to anything that repeats.
 - Always add a mute/volume toggle (M key or an on-screen button).

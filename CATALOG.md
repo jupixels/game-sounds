@@ -1,6 +1,6 @@
 # Sound catalog
 
-606 sounds, CC0 (Kenney.nl). Files are `sounds/<file>`. `vol` = suggested volume (0–1) so sounds mix evenly. Descriptions after the dash are measured from the audio (length, brightness, attack, pitch direction) and are approximate.
+636 sounds. Kenney.nl sounds are CC0. The `ww2/` recordings and `music/` tracks are CC0 or CC-BY (license and author on each line; CC-BY needs a credit line in your game, see LICENSE.md). Files are `sounds/<file>`. `vol` = suggested volume (0–1) so sounds mix evenly. Descriptions after the dash are measured from the audio (length, brightness, attack, pitch direction) and are approximate.
 
 ## Quick picks (game event → files)
 
@@ -57,6 +57,17 @@
 - **unlock_success**: `arcade/zap_three_up_01.mp3`
 - **jingle_win_or_lose**: `jingles/jingle_8bit_01.mp3`, `jingles/jingle_8bit_02.mp3`, `jingles/jingle_8bit_03.mp3`, `jingles/jingle_8bit_04.mp3` (+30 more variants)
 - **stinger**: `jingles/jingle_hit_01.mp3`, `jingles/jingle_hit_02.mp3`, `jingles/jingle_hit_03.mp3`, `jingles/jingle_hit_04.mp3` (+13 more variants)
+- **gunfire_realistic**: `ww2/rifle_shot_01.mp3`, `ww2/rifle_shot_02.mp3`, `ww2/rifle_shot_03.mp3`, `ww2/rifle_shot_04.mp3` (+2 more variants)
+- **battle_ambience**: `ww2/battle_distant_01.mp3`, `ww2/battle_distant_02.mp3`, `ww2/battle_distant_03.mp3`, `ww2/battle_distant_04.mp3`
+- **artillery**: `ww2/artillery_01.mp3`, `ww2/artillery_02.mp3`, `ww2/artillery_03.mp3`, `ww2/artillery_04.mp3` (+2 more variants)
+- **cannon_or_tank_gun**: `ww2/howitzer_01.mp3`, `ww2/howitzer_02.mp3`
+- **air_raid_siren**: `ww2/air_raid_siren_01.mp3`, `ww2/air_raid_siren_02.mp3`
+- **plane_flyover**: `ww2/plane_flyby_01.mp3`, `ww2/plane_pass_01.mp3`
+- **tank**: `ww2/tank_rumble_01.mp3`, `ww2/tank_rumble_02.mp3`, `ww2/tank_pass_01.mp3`
+- **ship_horn**: `ww2/ship_horn_01.mp3`
+- **radio_morse**: `ww2/radio_morse_01.mp3`, `ww2/radio_morse_02.mp3`
+- **music_somber**: `music/war_lament_01.mp3`
+- **music_battle**: `music/call_to_war_01.mp3`
 
 ## arcade
 
@@ -454,6 +465,14 @@
 - `jingles/jingle_steel_drum_15.mp3` 1.38s, vol 0.44 — medium, warm, slow swell, falling pitch, loud
 - `jingles/jingle_steel_drum_16.mp3` 0.94s, vol 0.41 — medium, warm, sharp attack, falling pitch, loud
 - `jingles/jingle_steel_drum_17.mp3` 0.91s, vol 0.6 — medium, warm, sharp attack, falling pitch
+
+## music
+
+### call_to_war — Orchestral battle theme with snare and horns (1:16). Loops. Use for: battle music, war time, action.
+- `music/call_to_war_01.mp3` 76.00s, vol 0.4 — very long, warm, slow swell, falling pitch [CC0, Umplix]
+
+### war_lament — Orchestral war lament (3:48), somber and slow. Loops. Use for: menu music, strategy map, sad or serious mood.
+- `music/war_lament_01.mp3` 228.00s, vol 0.4 — very long, bright, slow swell [CC0, Cethiel]
 
 ## rpg
 
@@ -915,3 +934,57 @@
 - `ui/toggle_02.mp3` 0.14s, vol 0.33 — very short, very bright/airy, sharp attack, loud
 - `ui/toggle_03.mp3` 0.14s, vol 0.44 — very short, very bright/airy, sharp attack, loud
 - `ui/toggle_04.mp3` 0.06s, vol 0.62 — very short, very bright/airy, sharp attack
+
+## ww2
+
+### air_raid_siren — Real air-raid siren, steady wail (about 8 s). Use for: air raid, bombing alert, war declared.
+- `ww2/air_raid_siren_01.mp3` 8.20s, vol 0.57 — very long, warm, slow swell, falling pitch [CC0, nooly]
+- `ww2/air_raid_siren_02.mp3` 8.40s, vol 0.76 — very long, warm, slow swell, rising pitch [CC0, nooly]
+
+### artillery — Field artillery shot with rolling echo. Use for: artillery barrage, bombardment, naval guns.
+- `ww2/artillery_01.mp3` 1.46s, vol 0.78 — medium, bright, sharp attack, falling pitch [CC0, qubodup]
+- `ww2/artillery_02.mp3` 0.99s, vol 0.87 — medium, bright, sharp attack, falling pitch [CC0, qubodup]
+- `ww2/artillery_03.mp3` 1.12s, vol 0.94 — medium, bright, sharp attack, falling pitch [CC0, qubodup]
+- `ww2/artillery_04.mp3` 1.10s, vol 1.0 — medium, bright, quick attack, falling pitch [CC0, qubodup]
+- `ww2/artillery_05.mp3` 2.06s, vol 0.58 — long, bright, sharp attack [CC0, qubodup]
+- `ww2/artillery_06.mp3` 2.66s, vol 1.0 — long, bright, sharp attack, falling pitch [CC0, qubodup]
+
+### battle_distant — Distant WW2 battle: rifles and machine guns crackling through trees. Use for: battle ambience, land battle, front line.
+- `ww2/battle_distant_01.mp3` 4.50s, vol 1.0 — very long, warm, slow swell [CC-BY 4.0, Cheeseheadburger]
+- `ww2/battle_distant_02.mp3` 3.70s, vol 1.0 — long, warm, slow swell [CC-BY 4.0, Cheeseheadburger]
+- `ww2/battle_distant_03.mp3` 4.60s, vol 1.0 — very long, warm, slow swell [CC-BY 4.0, Cheeseheadburger]
+- `ww2/battle_distant_04.mp3` 4.60s, vol 1.0 — very long, warm, slow swell, rising pitch [CC-BY 4.0, Cheeseheadburger]
+
+### howitzer — Close howitzer firing: hard boom with short decay. Use for: artillery, cannon, tank gun.
+- `ww2/howitzer_01.mp3` 0.79s, vol 0.3 — medium, warm, slow swell, falling pitch, loud [CC0, qubodup]
+- `ww2/howitzer_02.mp3` 1.32s, vol 0.54 — medium, warm, slow swell, falling pitch [CC0, qubodup]
+
+### mg_burst — Machine-gun burst (about 0.7 s of fire) with echo tail. Use for: machine gun, infantry combat, strafing.
+- `ww2/mg_burst_01.mp3` 2.45s, vol 0.79 — long, bright, sharp attack, falling pitch [CC-BY 3.0, soundscalpel.com]
+- `ww2/mg_burst_02.mp3` 2.12s, vol 0.95 — long, bright, slow swell, falling pitch [CC-BY 3.0, soundscalpel.com]
+
+### plane_flyby — Piston warplane (P-47 Thunderbolt) approaching and roaring overhead, stereo. Use for: plane flyover, air raid, air battle.
+- `ww2/plane_flyby_01.mp3` 8.45s, vol 1.0 — very long, warm, slow swell [CC-BY 3.0, Fight2FlyPhoto]
+
+### plane_pass — Short piston-plane pass (4 s), the loudest part of the flyby. Use for: plane built, air unit, quick flyover.
+- `ww2/plane_pass_01.mp3` 4.00s, vol 0.81 — very long, warm, slow swell [CC-BY 3.0, Fight2FlyPhoto]
+
+### radio_morse — Radio click, then morse code over static. Use for: orders sent, radio message, intel.
+- `ww2/radio_morse_01.mp3` 4.70s, vol 1.0 — very long, warm, slow swell [CC-BY 4.0, ERH]
+- `ww2/radio_morse_02.mp3` 1.80s, vol 0.37 — long, warm, slow swell, loud [CC-BY 4.0, ERH]
+
+### rifle_shot — Real bolt-action rifle shot (Mosin-Nagant), crack with outdoor tail. Use for: rifle fire, infantry combat, sniper.
+- `ww2/rifle_shot_01.mp3` 0.92s, vol 0.58 — medium, bright, quick attack, falling pitch [CC0, Tabasco]
+- `ww2/rifle_shot_02.mp3` 0.84s, vol 0.53 — medium, bright, quick attack [CC0, Tabasco]
+- `ww2/rifle_shot_03.mp3` 0.93s, vol 0.62 — medium, bright, quick attack, falling pitch [CC0, Tabasco]
+- `ww2/rifle_shot_04.mp3` 0.81s, vol 0.58 — medium, bright, quick attack [CC0, Tabasco]
+
+### ship_horn — Deep ship fog horn blast. Use for: ship, fleet moves, naval landing.
+- `ww2/ship_horn_01.mp3` 3.00s, vol 0.54 — long, warm, slow swell, falling pitch [CC0, qubodup]
+
+### tank_pass — Sherman tank driving past: engine roar and track clatter (13 s). Use for: tank column, armored attack.
+- `ww2/tank_pass_01.mp3` 13.00s, vol 0.63 — very long, bright, slow swell [CC-BY 4.0, nicStage]
+
+### tank_rumble — Close Sherman tank engine and tracks (4 s). Use for: tank built, armor moves.
+- `ww2/tank_rumble_01.mp3` 4.00s, vol 0.54 — very long, bright, slow swell [CC-BY 4.0, nicStage]
+- `ww2/tank_rumble_02.mp3` 4.00s, vol 0.59 — very long, bright, slow swell, falling pitch [CC-BY 4.0, nicStage]

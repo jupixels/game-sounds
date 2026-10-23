@@ -1,6 +1,6 @@
 # game-sounds
 
-A ready-to-use library of **606 real game sound effects and jingles**, organized and described so Claude (or anyone) can pick the right sound without hearing it. Everything is **CC0 / public domain** from [Kenney.nl](https://kenney.nl), free for personal and commercial games, with no credit required (credit is appreciated).
+A ready-to-use library of **636 real game sound effects, jingles and music tracks**, organized and described so Claude (or anyone) can pick the right sound without hearing it. 606 are **CC0 / public domain** from [Kenney.nl](https://kenney.nl), free for personal and commercial games with no credit required (credit is appreciated). The `ww2` and `music` folders hold real recordings from Freesound and OpenGameArt; some of those are CC-BY and need a credit line (see `LICENSE.md`).
 
 ## What's inside
 
@@ -14,8 +14,10 @@ A ready-to-use library of **606 real game sound effects and jingles**, organized
 | `sounds/tabletop` | 54 | cards, chips, dice |
 | `sounds/rpg` | 41 | doors, coins, blades, books, cloth, leather |
 | `sounds/footsteps` | 35 | grass, concrete, wood, snow, carpet, dirt |
+| `sounds/ww2` | 28 | real recordings: rifle shots, machine guns, distant battle, artillery, howitzer, air-raid siren, warplane flyby, Sherman tank, ship horn, morse radio |
+| `sounds/music` | 2 | orchestral loops: a somber war lament (3:48) and a battle theme (1:16) |
 
-All files are MP3 (plays in every browser), mono for effects and stereo for jingles. Most families come with several variants so repeated sounds don't feel robotic.
+All files are MP3 (plays in every browser), mono for effects and stereo for jingles, music and the two flyby/machine-gun recordings. Most families come with several variants so repeated sounds don't feel robotic.
 
 ## Files
 
@@ -25,7 +27,7 @@ All files are MP3 (plays in every browser), mono for effects and stereo for jing
 - **`lib/sfx.js`**: a small audio manager (no dependencies) that preloads, plays random variants, varies pitch slightly, loops engines and music, and handles the browser's "audio needs a click first" rule.
 - **`tools/find.py`**: search from the command line: `python3 tools/find.py laser`.
 - **`tools/embed.py`**: packs chosen sounds into a JS file of data URIs for single-file HTML games.
-- **`tools/build/`**: the scripts that built this library, for adding more packs later.
+- **`tools/build/`**: the scripts that built this library, for adding more packs later. `add_recorded.py` cuts long field recordings into clips (the `ww2` and `music` sets), and `envelope.py` prints a loudness timeline so cut points can be chosen without listening.
 
 ## Using it in a game
 
@@ -55,4 +57,4 @@ Drop new files into a category folder and add entries to `sounds.json`, or exten
 
 ## License
 
-All audio is CC0 1.0 from Kenney.nl (see `LICENSE.md`). The code in `lib/` and `tools/` is also released as CC0.
+The Kenney.nl audio is CC0 1.0. The `ww2` and `music` recordings are CC0 or CC-BY 3.0/4.0, listed per file in `LICENSE.md` and `sounds.json`. The code in `lib/` and `tools/` is released as CC0.
